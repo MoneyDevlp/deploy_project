@@ -1,5 +1,8 @@
-eb init Udagramapi --region us-east-1 && eb use Udagramapi-env && eb deploy Udagramapi-env &&
+eb init Udagram-api --region us-east-1 && eb list &&
 
+eb use Udagram-api-env &&
+
+eb setenv NAME=$NAME
 eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
 eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD
 eb setenv POSTGRES_HOST=$POSTGRES_HOST
@@ -12,3 +15,4 @@ eb setenv URL=$URL
 eb setenv AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 eb setenv AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
+&& eb deploy

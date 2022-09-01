@@ -6,6 +6,6 @@
         "backend:build": "cd ./udagram-api && npm run build",
         "frontend:deploy": "cd ./udagram-frontend && npm run deploy",
         "api:deploy": "cd ./udagram-api && npm run deploy",
-        "deploy": "npm run api:deploy && npm run frontend:deploy"
+        "deploy": "npm run frontend:deploy && npm run api:deploy"
     }
 }
