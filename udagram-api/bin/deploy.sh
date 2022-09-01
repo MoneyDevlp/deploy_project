@@ -1,3 +1,6 @@
+eb init
+eb create --sample --single --instance-types t2.small
+
 eb list 
 
 eb use Udagramapi-env
