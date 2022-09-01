@@ -1,9 +1,6 @@
-eb init
-eb create --sample --single --instance-types t2.small
-
 eb list 
 
-eb use Udagramapi-env
+eb use udagram-api
 
 eb setenv NAME=$NAME
 eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
