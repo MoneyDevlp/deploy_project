@@ -1,6 +1,6 @@
 eb list 
 
-eb use udagram-api
+eb use Udagramapi-env
 
 eb setenv NAME=$NAME
 eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
