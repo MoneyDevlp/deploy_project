@@ -1,3 +1,5 @@
+eb init
+
 eb list 
 
 eb use Udagramapi-env
