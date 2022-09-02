@@ -7,7 +7,7 @@ orbs:
   # different jobs are calles later in the workflows sections
 jobs:
   # Backend Build and Deploy
-  backend-build-deploy:
+  build:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
@@ -32,17 +32,6 @@ jobs:
           name: Back-End Deploy
           command: |
             npm run backend:deploy
-  # Frontend Build and Deploy
-  frontend-build-deploy:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-    steps:
-      - checkout
-      - node/install:
-          node-version: '14.15.1'
-      - aws-cli/install
-      # install dependencies
       - run:
           name: Angular CLI Dependencies
           command: |
@@ -64,13 +53,7 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - frontend-build-deploy:
-          requires:
-            - backend-build-deploy
-          filters:
-            branches:
-              only: /^main/
-      - backend-build-deploy:
+      - build:
           filters:
             branches:
               only: /^main/
