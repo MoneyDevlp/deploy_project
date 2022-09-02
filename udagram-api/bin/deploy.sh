@@ -1,4 +1,6 @@
-eb init UdagramBackendapi --region us-east-1 --platform Node.js && eb use UdagramBackendapi-env &&
+eb init UdagramBackendapi --region us-east-1 --platform Node.js
+
+eb use Udagrambackend-env
 
 eb setenv AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 eb setenv AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
@@ -12,4 +14,4 @@ eb setenv URL=$URL
 eb setenv AWS_PROFILE=$AWS_PROFILE
 eb setenv JWT_SECRET=$JWT_SECRET
 
-&& eb deploy
+eb deploy
