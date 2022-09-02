@@ -1,3 +1,4 @@
+
 version: 2.1
 orbs:
   # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
@@ -6,54 +7,46 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
-  # Backend Build and Deploy
   build:
     docker:
       # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
+      - image: "cimg/node:14.15"
     steps:
-      - checkout
+      # install node and checkout code
       - node/install:
-          node-version: '14.15.1'
-      - aws-cli/install
+          node-version: '14.15'
+      - checkout
+      - aws-cli/setup
       - eb/setup
-      # install dependencies
+      - run:
+          name: Front-End Install
+          command: |
+            npm run frontend:install
       - run:
           name: Back-End Install
           command: |
             npm run backend:install
-      # Build
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
       - run:
           name: Back-End Build
           command: |
             npm run backend:build
-      # Deploy
+      #Deploy the api and frontend app
       - run:
           name: Back-End Deploy
           command: |
             npm run backend:deploy
       - run:
-          name: Angular CLI Dependencies
-          command: |
-            npm i -g @angular/cli      
-      - run:
-          name: Front-End Install
-          command: |
-            npm run frontend:install
-      # Build
-      - run:
-          name: Front-End Build
-          command: |
-            npm run frontend:build
-      # Deploy
-      - run:
           name: Front-End Deploy
           command: |
             npm run frontend:deploy
 workflows:
-  udagram:
+  pipeline:
     jobs:
       - build:
           filters:
             branches:
-              only: /^main/
+              only: main
