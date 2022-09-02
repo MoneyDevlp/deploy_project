@@ -14,4 +14,4 @@ eb setenv URL=$URL
 eb setenv AWS_PROFILE=$AWS_PROFILE
 eb setenv JWT_SECRET=$JWT_SECRET
 
-eb deploy Udagrambackend-env --debug
+eb deploy Udagrambackend-env
