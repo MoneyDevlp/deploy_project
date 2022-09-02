@@ -1,7 +1,3 @@
-eb init Udagram-api --region us-east-1 && eb list &&
-
-eb use Udagram-api-env &&
-
 eb setenv NAME=$NAME
 eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
 eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD

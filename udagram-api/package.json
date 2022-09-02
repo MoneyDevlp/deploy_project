@@ -12,7 +12,7 @@
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "jasmine",
-    "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh"
+    "deploy": "eb list && eb use Udagramapi-env && chmod +x bin/deploy.sh && bin/deploy.sh"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
