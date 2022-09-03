@@ -1,0 +1,3 @@
+- AWS RDS - relational database service instance running PostgreSQL 
+- AWS Elastic Beanstalk (EB) - scalable service hosting the API backend
+- AWS Simple Storage Service (S3) - scalable storage hosting the UI front-end
